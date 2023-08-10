@@ -1,7 +1,7 @@
 import { FunctionComponent } from "react"
 import { ThemeIcon, UnstyledButton, Group, Text } from "@mantine/core"
 import type { NavbarLinkItem as NavbarLinkItemType } from "$types/navbar"
-import { useNavigate } from "react-router-dom"
+import { useLocation, useNavigate } from "react-router-dom"
 
 type Props = NavbarLinkItemType
 
@@ -9,6 +9,7 @@ const NavbarLinkItem: FunctionComponent<Props> = ({
   icon, color, label, path
 }) => {
   const navigate = useNavigate()
+  const location = useLocation()
 
   return (
     <UnstyledButton
@@ -18,11 +19,13 @@ const NavbarLinkItem: FunctionComponent<Props> = ({
         padding: theme.spacing.xs,
         borderRadius: theme.radius.sm,
         color: theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.black,
+        backgroundColor: location.pathname === path ? theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[0] : undefined,
 
         '&:hover': {
           backgroundColor:
             theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[0],
         },
+
       })}
       onClick={() => {
         navigate(path)

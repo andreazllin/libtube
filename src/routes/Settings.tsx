@@ -9,7 +9,7 @@ const Settings: FunctionComponent = () => {
 
   return (
     <>
-      <h1>Settings!</h1>
+      <Text component="h1" size="2xl">Settings</Text>
       <Paper withBorder={true} shadow="xs" p="xl" display="flex" style={{
         justifyContent: "space-between",
         alignItems: "center"

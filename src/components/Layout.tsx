@@ -10,10 +10,12 @@ import {
   ScrollArea,
   Burger,
   useMantineTheme,
+  TextInput,
 } from "@mantine/core"
 import { links } from "$constants/navbar"
 import NavbarLinkItem from "$components/Navbar/LinkItem"
 import { Outlet } from "react-router-dom"
+import SearchBar from "./Searchbar"
 
 const Layout: FunctionComponent<PropsWithChildren> = ({ children }) => {
   const theme = useMantineTheme();
@@ -63,10 +65,22 @@ const Layout: FunctionComponent<PropsWithChildren> = ({ children }) => {
               />
             </MediaQuery>
 
-            <Text size={"xl"}>
+            <Text size={"xl"} mr={16}>
               lib
-              <Text color={theme.colors.red[5]} component="span">tube.</Text>
+              <Text color={theme.primaryColor} component="span">tube.</Text>
             </Text>
+
+            <MediaQuery smallerThan="sm" styles={{ display: 'none' }}>
+              <div style={{ flex: 1 }}></div>
+            </MediaQuery>
+
+              <div style={{ flex: 1 }}>
+                <SearchBar />
+              </div>
+
+            <MediaQuery smallerThan="lg" styles={{ display: 'none' }}>
+              <div style={{ flex: 1 }}></div>
+            </MediaQuery>
           </div>
         </Header>
       }
