@@ -1,16 +1,24 @@
 import { FunctionComponent, PropsWithChildren } from "react"
-import { MantineProvider } from "@mantine/core"
+import { ColorSchemeProvider, MantineProvider } from "@mantine/core"
 import { theme } from "$constants/theme"
+import useColorScheme from "$hooks/useColorScheme"
 
 const Providers: FunctionComponent<PropsWithChildren> = ({ children }) => {
+  const { colorScheme, toggleColorScheme } = useColorScheme()
+
   return (
-    <MantineProvider
-      theme={theme}
-      withGlobalStyles={true}
-      withNormalizeCSS={true}
-    >
-      {children}
-    </MantineProvider>
+    <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
+      <MantineProvider
+        theme={{
+          ...theme,
+          colorScheme
+        }}
+        withGlobalStyles={true}
+        withNormalizeCSS={true}
+      >
+        {children}
+      </MantineProvider>
+    </ColorSchemeProvider>
   )
 }
 
