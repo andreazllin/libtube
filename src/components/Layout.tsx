@@ -15,7 +15,7 @@ import {
 import { links } from "$constants/navbar"
 import NavbarLinkItem from "$components/Navbar/LinkItem"
 import { Outlet } from "react-router-dom"
-import SearchBar from "./Searchbar"
+import SearchBar from "./SearchBar"
 
 const Layout: FunctionComponent<PropsWithChildren> = ({ children }) => {
   const theme = useMantineTheme();
