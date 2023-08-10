@@ -1,29 +1,23 @@
-import { Paper, Text, Switch, useMantineTheme } from "@mantine/core"
+import { Text, Stack } from "@mantine/core"
 import { FunctionComponent } from "react"
-import { IconSun, IconMoonStars } from '@tabler/icons-react'
-import useColorScheme from "$hooks/useColorScheme"
+import { useNavigate } from "react-router-dom"
+import ColorSchemeSwitch from "$components/Settings/ColorSchemeSwitch"
+import SettingLink from "$components/Settings/SettingLink"
 
 const Settings: FunctionComponent = () => {
-  const theme = useMantineTheme()
-  const { toggleColorScheme } = useColorScheme()
-
+  const navigate = useNavigate()
   return (
     <>
       <Text component="h1" size="2xl">Settings</Text>
-      <Paper withBorder={true} shadow="xs" p="xl" display="flex" style={{
-        justifyContent: "space-between",
-        alignItems: "center"
-      }}>
-        <Text>Dark mode</Text>
-        <Switch
-          onClick={toggleColorScheme}
-          size="lg"
-          checked={theme.colorScheme === 'dark'}
-          color={theme.colorScheme === 'dark' ? 'gray' : 'dark'}
-          onLabel={<IconSun size="1rem" stroke={2.5} color={theme.colors.yellow[4]} />}
-          offLabel={<IconMoonStars size="1rem" stroke={2.5} color={theme.colors.blue[6]} />}
+      <Stack>
+        <ColorSchemeSwitch />
+        <SettingLink
+          label="Instances"
+          onClick={() => {
+            navigate("/settings/instances")
+          }}
         />
-      </Paper>
+      </Stack>
     </>
 
   )

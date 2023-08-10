@@ -6,34 +6,35 @@ import {
   IconHistory,
   IconSettings
 } from "@tabler/icons-react"
+import { sizes } from "./sizes"
 
 export const links: NavbarLinkItem[] = [
   {
-    icon: <IconHome size="1rem" />,
+    icon: <IconHome size={sizes.icon} />,
     color: "blue",
     label: "Home",
     path: "/"
   },
   {
-    icon: <IconStack2 size="1rem" />,
+    icon: <IconStack2 size={sizes.icon} />,
     color: "teal",
     label: "Subscriptions",
     path: "/subscriptions"
   },
   {
-    icon: <IconList size="1rem" />,
+    icon: <IconList size={sizes.icon} />,
     color: "violet",
     label: "Playlists",
     path: "/playlists"
   },
   {
-    icon: <IconHistory size="1rem" />,
+    icon: <IconHistory size={sizes.icon} />,
     color: "grape",
     label: "History",
     path: "/history"
   },
   {
-    icon: <IconSettings size="1rem" />,
+    icon: <IconSettings size={sizes.icon} />,
     color: "gray",
     label: "Settings",
     path: "/settings"

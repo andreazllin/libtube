@@ -3,6 +3,7 @@ import { FunctionComponent, useRef } from "react"
 import { IconSearch } from "@tabler/icons-react"
 import { useHotkeys } from "@mantine/hooks"
 import { useForm } from "@mantine/form"
+import { sizes } from "$constants/sizes"
 
 type SearchBarForm = {
   searchQuery: string
@@ -32,7 +33,7 @@ const SearchBar: FunctionComponent = () => {
           style={{ flex: 1 }}
           ref={ref}
           placeholder="Search..."
-          icon={<IconSearch size={"1rem"}/>}
+          icon={<IconSearch size={sizes.icon}/>}
           aria-label="Search"
           rightSection={<Kbd>/</Kbd>}
           {...form.getInputProps("searchQuery")}

@@ -2,6 +2,9 @@ import { FunctionComponent, PropsWithChildren } from "react"
 import { ColorSchemeProvider, MantineProvider } from "@mantine/core"
 import { theme } from "$constants/theme"
 import useColorScheme from "$hooks/useColorScheme"
+import { QueryClient, QueryClientProvider } from "react-query"
+
+export const queryClient = new QueryClient({ defaultOptions: { queries: { retry: 2 } } })
 
 const Providers: FunctionComponent<PropsWithChildren> = ({ children }) => {
   const { colorScheme, toggleColorScheme } = useColorScheme()
@@ -16,7 +19,9 @@ const Providers: FunctionComponent<PropsWithChildren> = ({ children }) => {
         withGlobalStyles={true}
         withNormalizeCSS={true}
       >
-        {children}
+        <QueryClientProvider client={queryClient}>
+          {children}
+        </QueryClientProvider>
       </MantineProvider>
     </ColorSchemeProvider>
   )

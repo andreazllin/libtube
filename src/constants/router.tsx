@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom"
 import Settings from "$routes/Settings"
 import Layout from "$components/Layout";
+import Instances from "$routes/Instances";
 
 export const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ export const router = createBrowserRouter([
       {
         path: "/settings",
         element: <Settings />
+      },
+      {
+        path: "/settings/instances",
+        element: <Instances />
       }
     ]
   },
