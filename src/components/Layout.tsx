@@ -1,23 +1,22 @@
-import { FunctionComponent, PropsWithChildren, useState } from "react"
+import { FunctionComponent, useState } from "react"
 import {
   AppShell,
   Navbar,
   Header,
   // Footer,
-  Aside,
+  // Aside,
   Text,
   MediaQuery,
   ScrollArea,
   Burger,
-  useMantineTheme,
-  TextInput,
+  useMantineTheme
 } from "@mantine/core"
 import { links } from "$constants/navbar"
 import NavbarLinkItem from "$components/Navbar/LinkItem"
 import { Outlet } from "react-router-dom"
 import SearchBar from "./SearchBar"
 
-const Layout: FunctionComponent<PropsWithChildren> = ({ children }) => {
+const Layout: FunctionComponent = () => {
   const theme = useMantineTheme();
   const [opened, setOpened] = useState(false);
   return (
