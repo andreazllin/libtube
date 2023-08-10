@@ -1,10 +1,10 @@
 [package]
 name = "libtube"
 version = "0.0.0"
-description = "A Tauri App"
-authors = ["you"]
+description = "Privacy-focused Open Source Alternative YouTube Client"
+authors = ["andreazllin"]
 license = ""
-repository = ""
+repository = "https://github.com/andreazllin/libtube"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
