@@ -33,6 +33,12 @@
       "$constants/*": [
         "src/constants/*"
       ],
+      "$routes/*": [
+        "src/routes/*"
+      ],
+      "$types/*": [
+        "src/types/*"
+      ],
     },
   },
   "include": ["src"],
