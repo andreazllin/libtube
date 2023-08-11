@@ -1,9 +1,11 @@
+import { sizes } from "$constants/sizes"
 import useInstance from "$hooks/useInstance"
-import { Paper, Table, Skeleton } from "@mantine/core"
+import { Paper, Table, Skeleton, ActionIcon } from "@mantine/core"
+import { IconApi } from "@tabler/icons-react"
 import { FunctionComponent } from "react"
 
 const Instances: FunctionComponent = () => {
-  const { instances, instancesLoading } = useInstance()
+  const { instances, instancesLoading, setInstance } = useInstance()
 
   return (
     <Skeleton visible={instancesLoading}>
@@ -15,6 +17,7 @@ const Instances: FunctionComponent = () => {
               <th>Version</th>
               <th>Health</th>
               <th>Location</th>
+              <th align="center">Set</th>
             </tr>
           </thead>
           <tbody>
@@ -26,6 +29,11 @@ const Instances: FunctionComponent = () => {
                     <td>{data.stats?.software.version}</td>
                     <td>{data.monitor?.["30dRatio"].ratio}%</td>
                     <td>{data.flag} - {data.region}</td>
+                    <td>
+                      <ActionIcon onClick={() => setInstance(data.uri)}>
+                        <IconApi size={sizes.icon} />
+                      </ActionIcon>
+                    </td>
                   </tr>
                 )
               })

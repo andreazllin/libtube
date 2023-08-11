@@ -3,6 +3,7 @@ import { ColorSchemeProvider, MantineProvider } from "@mantine/core"
 import { theme } from "$constants/theme"
 import useColorScheme from "$hooks/useColorScheme"
 import { QueryClient, QueryClientProvider } from "react-query"
+import { Notifications } from "@mantine/notifications"
 
 export const queryClient = new QueryClient({ defaultOptions: { queries: { retry: 2 } } })
 
@@ -20,6 +21,7 @@ const Providers: FunctionComponent<PropsWithChildren> = ({ children }) => {
         withNormalizeCSS={true}
       >
         <QueryClientProvider client={queryClient}>
+          <Notifications />
           {children}
         </QueryClientProvider>
       </MantineProvider>

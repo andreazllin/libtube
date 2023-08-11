@@ -1,7 +1,8 @@
 import { createBrowserRouter } from "react-router-dom"
 import Settings from "$routes/Settings"
-import Layout from "$components/Layout";
-import Instances from "$routes/Instances";
+import Layout from "$components/Layout"
+import InstanceSettings from "$routes/InstanceSettings"
+import Home from "$routes/Home"
 
 export const router = createBrowserRouter([
   {
@@ -10,7 +11,7 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <h1> Hello World </h1>
+        element: <Home />
       },
       {
         path: "/subscriptions",
@@ -29,8 +30,8 @@ export const router = createBrowserRouter([
         element: <Settings />
       },
       {
-        path: "/settings/instances",
-        element: <Instances />
+        path: "/settings/instance",
+        element: <InstanceSettings />
       }
     ]
   },
