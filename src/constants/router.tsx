@@ -3,6 +3,7 @@ import Settings from "$routes/Settings"
 import Layout from "$components/Layout"
 import InstanceSettings from "$routes/InstanceSettings"
 import Home from "$routes/Home"
+import Watch from "$routes/Watch"
 
 export const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ export const router = createBrowserRouter([
       {
         path: "/settings/instance",
         element: <InstanceSettings />
+      },
+      {
+        path: "/watch/:videoId",
+        element: <Watch />
       }
     ]
   },
