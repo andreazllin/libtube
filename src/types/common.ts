@@ -9,7 +9,6 @@ export interface Image {
 export interface Thumbnail extends Image {
   quality: string
 }
-
 export interface Video {
   type: "video", // Constant
 

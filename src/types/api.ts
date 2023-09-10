@@ -1,4 +1,4 @@
-import { Thumbnail, Video } from "./common"
+import { Video } from "./common"
 
 export type V1Stats = {
   version: string
