@@ -1,6 +1,7 @@
 import { FunctionComponent } from "react"
-import { Text, Group, SimpleGrid } from "@mantine/core"
+import { Text, SimpleGrid } from "@mantine/core"
 import VideoCard from "$components/VideoCard"
+import VideoCardSkeleton from "$components/Skeletons/VideoCardSkeleton"
 import { useQuery } from "react-query"
 import { V1Trending } from "$types/api/endpoints/v1Trending"
 import useInstance from "$hooks/useInstance"
@@ -11,21 +12,11 @@ const Home: FunctionComponent = () => {
 
   const { data: trending, isLoading: trendingLoading } = useQuery<V1Trending>(["trendingVideos"], async() => {
     const res = await api.trending.v1Trending({ baseURL: instance })
-
     return res.data
   })
 
-  if (trendingLoading) {
-    return (
-      <>
-        <Group position="center">
-          <Text>Loading...</Text>
-        </Group>
-      </>
-    )
-  }
-
-  if (!trending) {
+  if (!trending && !trendingLoading) {
+    // TODO make this better lol
     return (
       <Text>No data received (???)</Text>
     )
@@ -43,7 +34,9 @@ const Home: FunctionComponent = () => {
         ]}
       >
         {
-          trending.map((video) => {
+          trendingLoading ? Array(12).fill(12).map((_, i) => {
+            return <VideoCardSkeleton key={i} />
+          }) : trending.map((video) => {
             return (
               <VideoCard
                 key={video.videoId}
