@@ -1,13 +1,11 @@
-import { Video } from "./common"
-
-export type V1Stats = {
+export interface Stats {
   version: string
   software: {
     name: "invidious"
     version: string
     branch: string
   }
-  openRegistrations: boolean
+  openRegistration: boolean
   usage: {
     users: {
       total: number
@@ -21,5 +19,4 @@ export type V1Stats = {
   }
 }
 
-export type V1Trending = Video[]
 
