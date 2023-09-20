@@ -18,7 +18,7 @@ const Watch: FunctionComponent = () => {
     return res.data
   })
 
-  if (videoLoading && !videoData) {
+  if (videoLoading) {
     return (
       <>
         <Group position="center">
@@ -43,7 +43,7 @@ const Watch: FunctionComponent = () => {
         {videoData?.title}
       </Text>
 
-      <Button onClick={() => {
+      <Button onClick={(): void => {
         setPip(value => !value)
       }}>
         Toggle PiP

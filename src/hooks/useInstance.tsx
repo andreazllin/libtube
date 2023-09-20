@@ -31,13 +31,15 @@ export default function useInstance(): UseInstanceReturnType {
       const { data: stats, config } = await axios.get<V1Stats>("/api/v1/stats", {
         baseURL: instance
       })
+
+      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
       if (stats.software.name !== "invidious") {
         throw new Error("INVALID_INSTANCE")
       }
 
       // We already set the baseURL in the axios request,
       // so we can assume that the baseURL is present
-      storeInstance(config.baseURL!)
+      storeInstance(config.baseURL as string)
       notifications.update({
         id: "set-instance",
         color: "green",
@@ -72,7 +74,7 @@ export default function useInstance(): UseInstanceReturnType {
     return instances.filter((instance) => {
       const instanceData = instance[1]
       return instanceData.type === "https" && instanceData.api
-    }) || []
+    })
   }, [instances])
 
   return {

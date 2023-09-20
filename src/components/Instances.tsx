@@ -30,7 +30,7 @@ const Instances: FunctionComponent = () => {
                     <td>{data.monitor?.["30dRatio"].ratio}%</td>
                     <td>{data.flag} - {data.region}</td>
                     <td>
-                      <ActionIcon onClick={() => setInstance(data.uri)}>
+                      <ActionIcon onClick={async(): Promise<void> => setInstance(data.uri)}>
                         <IconApi size={sizes.icon} />
                       </ActionIcon>
                     </td>

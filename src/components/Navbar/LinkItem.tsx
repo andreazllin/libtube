@@ -1,5 +1,5 @@
 import { FunctionComponent, useMemo } from "react"
-import { ThemeIcon, UnstyledButton, Group, Text } from "@mantine/core"
+import { ThemeIcon, UnstyledButton, Group, Text, CSSObject } from "@mantine/core"
 import type { NavbarLinkItem as NavbarLinkItemType } from "$types/navbar"
 import { useLocation, useNavigate } from "react-router-dom"
 
@@ -17,7 +17,7 @@ const NavbarLinkItem: FunctionComponent<Props> = ({
 
   return (
     <UnstyledButton
-      sx={(theme) => ({
+      sx={(theme): CSSObject => ({
         display: "block",
         width: "100%",
         padding: theme.spacing.xs,
@@ -31,7 +31,7 @@ const NavbarLinkItem: FunctionComponent<Props> = ({
         }
 
       })}
-      onClick={() => {
+      onClick={(): void => {
         navigate(path)
       }}
     >

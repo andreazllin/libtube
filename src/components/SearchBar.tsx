@@ -13,7 +13,7 @@ const SearchBar: FunctionComponent = () => {
   const ref = useRef<HTMLInputElement>(null)
 
   useHotkeys([
-    ["/", () => {
+    ["/", (): void => {
       ref.current?.focus()
     }]
   ])
@@ -24,7 +24,7 @@ const SearchBar: FunctionComponent = () => {
     }
   })
 
-  const handleSubmit = (values: SearchBarForm) => {
+  const handleSubmit = (values: SearchBarForm): void => {
     console.log(values)
   }
 

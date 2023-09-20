@@ -1,6 +1,6 @@
 import { FunctionComponent, PropsWithChildren } from "react"
 import ReactPlayer, { ReactPlayerProps } from "react-player"
-import { Box } from "@mantine/core"
+import { Box, CSSObject } from "@mantine/core"
 interface Props extends ReactPlayerProps {
   url: string
 }
@@ -28,7 +28,7 @@ const Wrapper: FunctionComponent<PropsWithChildren> = ({
   children
 }) => {
   return (<>
-    <Box sx={() => ({
+    <Box sx={(): CSSObject => ({
       width: "100%",
       position: "relative"
     })}>

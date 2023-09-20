@@ -12,7 +12,7 @@ const Settings: FunctionComponent = () => {
         <ColorSchemeSwitch />
         <SettingLink
           label="Instance settings"
-          onClick={() => {
+          onClick={(): void => {
             navigate("/settings/instance")
           }}
         />

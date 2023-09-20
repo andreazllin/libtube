@@ -21,7 +21,7 @@ const InstanceSettings: FunctionComponent = () => {
     form.setValues({
       instanceUrl: instance
     })
-  }, [instance])
+  }, [instance, form])
 
   const handleSubmit = async(values: SetInstanceForm): Promise<void> => {
     await setInstance(values.instanceUrl)

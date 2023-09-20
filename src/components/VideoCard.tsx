@@ -20,7 +20,7 @@ const VideoCard: FunctionComponent<Props> = ({
   return (
     <Card
       component="a"
-      onClick={() => navigate(`/watch/${videoId}`)}
+      onClick={(): void => navigate(`/watch/${videoId}`)}
       shadow="sm"
       padding="lg"
       radius="md"
