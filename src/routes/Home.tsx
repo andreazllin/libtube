@@ -39,9 +39,9 @@ const Home: FunctionComponent = () => {
         cols={3}
         spacing="lg"
         breakpoints={[
-          { maxWidth: 'lg', cols: 3, spacing: 'md' },
-          { maxWidth: 'md', cols: 2, spacing: 'md' },
-          { maxWidth: 'xs', cols: 1, spacing: 'sm' },
+          { maxWidth: "lg", cols: 3, spacing: "md" },
+          { maxWidth: "md", cols: 2, spacing: "md" },
+          { maxWidth: "xs", cols: 1, spacing: "sm" }
         ]}
       >
         {

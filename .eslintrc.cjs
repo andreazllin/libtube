@@ -204,5 +204,8 @@ module.exports = {
       "error",
       "always"
     ]
-  }
+  },
+  ignorePatterns: [
+    "src/vite-env.d.ts"
+  ]
 }

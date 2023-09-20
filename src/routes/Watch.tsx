@@ -10,7 +10,7 @@ const Watch: FunctionComponent = () => {
   const { videoId } = useParams()
   const { instance } = useInstance()
   const [pip, setPip] = useState(false)
-  const { data: videoData, isLoading: videoLoading, error: videoError} = useQuery(["video", videoId], async() => {
+  const { data: videoData, isLoading: videoLoading, error: videoError } = useQuery(["video", videoId], async() => {
     const res = await axios.get(`/api/v1/videos/${videoId}`, {
       baseURL: instance
     })

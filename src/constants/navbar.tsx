@@ -38,5 +38,5 @@ export const links: NavbarLinkItem[] = [
     color: "gray",
     label: "Settings",
     path: "/settings"
-  },
+  }
 ]

@@ -27,7 +27,7 @@ const VideoPlayer: FunctionComponent<Props> = ({
 const Wrapper: FunctionComponent<PropsWithChildren> = ({
   children
 }) => {
-  return(<>
+  return (<>
     <Box sx={() => ({
       width: "100%",
       position: "relative"

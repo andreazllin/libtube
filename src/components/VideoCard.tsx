@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react"
-import { Card, Image, Text, Badge, Group, Stack, AspectRatio } from '@mantine/core'
+import { Card, Image, Text, Badge, Group, Stack, AspectRatio } from "@mantine/core"
 import { Video } from "$types/common"
 import { secondsToDuration } from "$helpers/time"
 import { useNavigate } from "react-router-dom"

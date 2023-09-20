@@ -16,7 +16,7 @@ export const useInstanceStore = create<State & Actions>()(
     immer(
       (set) => ({
         instance: "https://invidious.lunar.icu",
-        setInstance: (instance: string): void => set({ instance }),
+        setInstance: (instance: string): void => set({ instance })
       })
     ),
     {

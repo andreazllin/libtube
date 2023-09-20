@@ -1,6 +1,6 @@
 import { Paper, Text, PaperProps } from "@mantine/core"
 import { FunctionComponent } from "react"
-import { IconChevronRight } from '@tabler/icons-react'
+import { IconChevronRight } from "@tabler/icons-react"
 import { sizes } from "$constants/sizes"
 
 interface Props extends PaperProps {

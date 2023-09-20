@@ -13,7 +13,9 @@ const SearchBar: FunctionComponent = () => {
   const ref = useRef<HTMLInputElement>(null)
 
   useHotkeys([
-    ["/", () => { ref.current?.focus() }]
+    ["/", () => {
+      ref.current?.focus()
+    }]
   ])
 
   const form = useForm<SearchBarForm>({

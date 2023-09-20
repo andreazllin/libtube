@@ -20,12 +20,12 @@ export default function useInstance(): UseInstanceReturnType {
 
   const setInstance = async(instance: string): Promise<void> => {
     notifications.show({
-      id: 'set-instance',
+      id: "set-instance",
       loading: true,
-      title: 'Checking instance',
-      message: 'Checking if the instance is valid and available...',
+      title: "Checking instance",
+      message: "Checking if the instance is valid and available...",
       autoClose: false,
-      withCloseButton: false,
+      withCloseButton: false
     })
     try {
       const { data: stats, config } = await axios.get<V1Stats>("/api/v1/stats", {
@@ -39,17 +39,17 @@ export default function useInstance(): UseInstanceReturnType {
       // so we can assume that the baseURL is present
       storeInstance(config.baseURL!)
       notifications.update({
-        id: 'set-instance',
-        color: 'green',
-        title: 'Instance set',
+        id: "set-instance",
+        color: "green",
+        title: "Instance set",
         message: `You are now using \`${instance}\` as invidious instance.`,
         icon: <IconCheck />,
         autoClose: 10000,
         withCloseButton: true
-      });
+      })
     } catch (e) {
       notifications.update({
-        id: 'set-instance',
+        id: "set-instance",
         title: "Error!",
         message: "INVALID_INSTANCE",
         color: "red",

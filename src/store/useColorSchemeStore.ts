@@ -17,7 +17,7 @@ export const useColorSchemeStore = create<State & Actions>()(
     immer(
       (set) => ({
         colorScheme: "dark",
-        setColorScheme: (colorScheme: ColorScheme): void => set({ colorScheme }),
+        setColorScheme: (colorScheme: ColorScheme): void => set({ colorScheme })
       })
     ),
     {

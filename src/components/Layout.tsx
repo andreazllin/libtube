@@ -17,14 +17,14 @@ import { Outlet } from "react-router-dom"
 import SearchBar from "./SearchBar"
 
 const Layout: FunctionComponent = () => {
-  const theme = useMantineTheme();
-  const [opened, setOpened] = useState(false);
+  const theme = useMantineTheme()
+  const [opened, setOpened] = useState(false)
   return (
     <AppShell
       styles={{
         main: {
-          background: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[0],
-        },
+          background: theme.colorScheme === "dark" ? theme.colors.dark[8] : theme.colors.gray[0]
+        }
       }}
       navbarOffsetBreakpoint="sm"
       asideOffsetBreakpoint="sm"
@@ -53,8 +53,8 @@ const Layout: FunctionComponent = () => {
       // }
       header={
         <Header height={{ base: 50, md: 70 }} p="md">
-          <div style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
-            <MediaQuery largerThan="sm" styles={{ display: 'none' }}>
+          <div style={{ display: "flex", alignItems: "center", height: "100%" }}>
+            <MediaQuery largerThan="sm" styles={{ display: "none" }}>
               <Burger
                 opened={opened}
                 onClick={() => setOpened((o) => !o)}
@@ -69,15 +69,15 @@ const Layout: FunctionComponent = () => {
               <Text color={theme.primaryColor} component="span">tube.</Text>
             </Text>
 
-            <MediaQuery smallerThan="sm" styles={{ display: 'none' }}>
+            <MediaQuery smallerThan="sm" styles={{ display: "none" }}>
               <div style={{ flex: 1 }}></div>
             </MediaQuery>
 
-              <div style={{ flex: 1 }}>
-                <SearchBar />
-              </div>
+            <div style={{ flex: 1 }}>
+              <SearchBar />
+            </div>
 
-            <MediaQuery smallerThan="lg" styles={{ display: 'none' }}>
+            <MediaQuery smallerThan="lg" styles={{ display: "none" }}>
               <div style={{ flex: 1 }}></div>
             </MediaQuery>
           </div>
@@ -87,7 +87,7 @@ const Layout: FunctionComponent = () => {
       <Outlet />
       {/* {children} */}
     </AppShell>
-  );
+  )
 }
 
 export default Layout

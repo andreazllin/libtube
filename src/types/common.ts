@@ -10,32 +10,32 @@ export interface Thumbnail extends Image {
   quality: string
 }
 export interface Video {
-  type: "video", // Constant
+  type: "video" // Constant
 
-  title: string,
-  videoId: string,
+  title: string
+  videoId: string
 
-  author: string,
-  authorId: string,
-  authorUrl: string,
-  authorVerified: Boolean,
+  author: string
+  authorId: string
+  authorUrl: string
+  authorVerified: boolean
 
-  videoThumbnails: Thumbnail[],
+  videoThumbnails: Thumbnail[]
 
-  description: string,
-  descriptionHtml: string,
+  description: string
+  descriptionHtml: string
 
-  viewCount: number, // Integer
-  viewCountText: string,
-  lengthSeconds: number, // Integer
+  viewCount: number // Integer
+  viewCountText: string
+  lengthSeconds: number // Integer
 
-  published: number, // Unix timestamp
-  publishedText: string,
+  published: number // Unix timestamp
+  publishedText: string
 
   // Only available on premiered videos
-  premiereTimestamp: number, // Unix timestamp
+  premiereTimestamp: number // Unix timestamp
 
-  liveNow: boolean,
-  premium: boolean,
+  liveNow: boolean
+  premium: boolean
   isUpcoming: boolean
 }

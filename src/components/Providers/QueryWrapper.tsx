@@ -1,5 +1,5 @@
-import { FunctionComponent } from "react";
-import { QueryClient, QueryClientProvider, QueryClientProviderProps } from "react-query";
+import { FunctionComponent } from "react"
+import { QueryClient, QueryClientProvider, QueryClientProviderProps } from "react-query"
 
 export const queryClient = new QueryClient({ defaultOptions: { queries: { retry: 2 } } })
 
