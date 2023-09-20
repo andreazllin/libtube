@@ -2,18 +2,16 @@ import { FunctionComponent } from "react"
 import { Text, Group, SimpleGrid } from "@mantine/core"
 import VideoCard from "$components/VideoCard"
 import { useQuery } from "react-query"
-import { V1Trending } from "$types/api"
-import axios from "axios"
+import { V1Trending } from "$types/api/endpoints/v1Trending"
 import useInstance from "$hooks/useInstance"
+import { api } from "$api"
 
 const Home: FunctionComponent = () => {
   const { instance } = useInstance()
 
   const { data: trending, isLoading: trendingLoading } = useQuery<V1Trending>(["trendingVideos"], async() => {
-    const res = await axios.get<V1Trending>("/api/v1/trending", {
-      baseURL: instance
-    })
-    console.log(res.data)
+    const res = await api.trending.v1Trending({ baseURL: instance })
+
     return res.data
   })
 

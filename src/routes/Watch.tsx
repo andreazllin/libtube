@@ -1,21 +1,29 @@
 import useInstance from "$hooks/useInstance"
 import { Button, Group, Text } from "@mantine/core"
-import axios from "axios"
 import { FunctionComponent, useState } from "react"
 import VideoPlayer from "$components/VideoPlayer"
 import { useQuery } from "react-query"
 import { useParams } from "react-router-dom"
+import { api } from "$api"
+import { V1Videos } from "$types/api/endpoints/v1Videos"
+import { useNavigate } from "react-router-dom"
 
 const Watch: FunctionComponent = () => {
   const { videoId } = useParams()
   const { instance } = useInstance()
+  const navigate = useNavigate()
   const [pip, setPip] = useState(false)
-  const { data: videoData, isLoading: videoLoading, error: videoError } = useQuery(["video", videoId], async() => {
-    const res = await axios.get(`/api/v1/videos/${videoId}`, {
+
+  const { data: videoData, isLoading: videoLoading, error: videoError } = useQuery<V1Videos>(["video", videoId], async() => {
+    const res = await api.videos.v1Videos({
       baseURL: instance
-    })
-    console.log(res.data)
+      // We can assume that videoId is defined as string because of
+      // the type of useParams and enabled is set to true if videoId is defined
+    }, { id: videoId as string })
+
     return res.data
+  }, {
+    enabled: !!videoId
   })
 
   if (videoLoading) {
@@ -26,6 +34,11 @@ const Watch: FunctionComponent = () => {
         </Group>
       </>
     )
+  }
+
+  if (!videoData) {
+    navigate("/")
+    return
   }
 
   return (
@@ -40,7 +53,7 @@ const Watch: FunctionComponent = () => {
       />
 
       <Text weight={600} size={"xl"}>
-        {videoData?.title}
+        {videoData.title}
       </Text>
 
       <Button onClick={(): void => {

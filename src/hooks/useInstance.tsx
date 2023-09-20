@@ -3,9 +3,9 @@ import axios from "axios"
 import { InstancesResponse } from "$types/invidious"
 import { useMemo } from "react"
 import useInstanceStore from "$store/useInstanceStore"
-import { V1Stats } from "$types/api"
 import { notifications } from "@mantine/notifications"
 import { IconCheck, IconX } from "@tabler/icons-react"
+import { api } from "$api"
 
 interface UseInstanceReturnType {
   instance: string
@@ -28,9 +28,7 @@ export default function useInstance(): UseInstanceReturnType {
       withCloseButton: false
     })
     try {
-      const { data: stats, config } = await axios.get<V1Stats>("/api/v1/stats", {
-        baseURL: instance
-      })
+      const { data: stats, config } = await api.stats.v1Stats({ baseURL: instance })
 
       // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
       if (stats.software.name !== "invidious") {
@@ -46,7 +44,7 @@ export default function useInstance(): UseInstanceReturnType {
         title: "Instance set",
         message: `You are now using \`${instance}\` as invidious instance.`,
         icon: <IconCheck />,
-        autoClose: 10000,
+        autoClose: 2500,
         withCloseButton: true
       })
     } catch (e) {

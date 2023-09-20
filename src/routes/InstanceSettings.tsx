@@ -11,17 +11,17 @@ type SetInstanceForm = {
 const InstanceSettings: FunctionComponent = () => {
   const { instance, setInstance } = useInstance()
 
-  const form = useForm<SetInstanceForm>({
+  const { onSubmit, setValues, getInputProps } = useForm<SetInstanceForm>({
     initialValues: {
       instanceUrl: instance
     }
   })
 
   useEffect(() => {
-    form.setValues({
+    setValues({
       instanceUrl: instance
     })
-  }, [instance, form])
+  }, [instance, setValues])
 
   const handleSubmit = async(values: SetInstanceForm): Promise<void> => {
     await setInstance(values.instanceUrl)
@@ -29,14 +29,14 @@ const InstanceSettings: FunctionComponent = () => {
 
   return (
     <Stack>
-      <form onSubmit={form.onSubmit(handleSubmit)}>
+      <form onSubmit={onSubmit(handleSubmit)}>
         <Group spacing={"xs"}>
           <TextInput
             style={{ flex: 1 }}
             placeholder="Instance URL ex.: https://invidious.andrealin.it"
             // icon={<IconSearch size={sizes.icon} />}
             aria-label="Instance url"
-            {...form.getInputProps("instanceUrl")}
+            {...getInputProps("instanceUrl")}
           />
           <Button type="submit">
             Set instance

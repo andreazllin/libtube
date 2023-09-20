@@ -1,5 +1,5 @@
 import { Button, Group, Kbd, TextInput } from "@mantine/core"
-import { FunctionComponent, useRef } from "react"
+import { FunctionComponent, useCallback, useRef } from "react"
 import { IconSearch } from "@tabler/icons-react"
 import { useHotkeys } from "@mantine/hooks"
 import { useForm } from "@mantine/form"
@@ -24,9 +24,10 @@ const SearchBar: FunctionComponent = () => {
     }
   })
 
-  const handleSubmit = (values: SearchBarForm): void => {
+  const handleSubmit = useCallback((values: SearchBarForm): void => {
+    // eslint-disable-next-line no-console
     console.log(values)
-  }
+  }, [])
 
   return (
     <form onSubmit={form.onSubmit(handleSubmit)}>
